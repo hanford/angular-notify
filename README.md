@@ -20,7 +20,7 @@ angular
       console.log('clicked notification!')
     }
 
-    notify.show('Example Notification', 5000, onClick)
+    notify.show('Example Notification', 'path/icon.jpg', 5000, onClick)
   })
 ```
 
@@ -28,6 +28,10 @@ angular
 ##### *message*  
 
 The first parameter is the message for the notification
+
+##### *icon*  
+
+The second parameter is the icon for the notification
 
 ##### *timeout*  
 

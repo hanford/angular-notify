@@ -15,12 +15,16 @@ function Notify ($timeout, $window) {
     notification: {}
   }
 
-  function show (message, timeout, clickFn) {
+  function show (message, icon, timeout, clickFn) {
     if (!$window.Notification) return
     $window.Notification.requestPermission(function (result) {
       if (result !== 'granted') return
 
-      state.notification = new $window.Notification(message)
+      if (icon) {
+        state.notification = new $window.Notification(message, {icon:icon})
+      } else {
+        state.notification = new $window.Notification(message)
+      }
 
       if (clickFn) {
         state.notification.onclick = function () {
