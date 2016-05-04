@@ -3,6 +3,11 @@ module.exports = require('angular')
   .service('notify', Notify)
   .name
 
+Notify.$inject = [
+  '$timeout',
+  '$window'
+]
+
 function Notify ($timeout, $window) {
   // fallback for devices without the notification object, like Mobile Safari.
   if ($window.Notification) {
